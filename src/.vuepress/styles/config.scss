@@ -1,0 +1,13 @@
+// src/.vuepress/styles/config.scss
+
+// 自定义变量
+:root {
+  --primary-color: #11a8cd;
+  --bg-color: #ffffff;
+  --text-color: #333333;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1e1e1e;
+  --text-color: #d4d4d4;
+}

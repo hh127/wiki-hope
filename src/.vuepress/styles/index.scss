@@ -1,0 +1,71 @@
+// src/.vuepress/styles/index.scss
+
+// 自定义全局样式
+.vp-page-title {
+  color: var(--primary-color);
+}
+
+// 首页样式
+.vp-hero-info {
+  .vp-hero-text {
+    font-size: 3rem;
+  }
+}
+
+// 字体设置
+:root {
+  --font-family: "LXGW WenKai", "KaiTi", "STKaiti", "楷体", serif;
+}
+
+body,
+.vp-page-content,
+.theme-hope-content,
+.vp-navbar,
+.vp-sidebar {
+  font-family: var(--font-family);
+}
+
+// 文章内容样式
+.vp-page-content,
+.theme-hope-content {
+  // 防止内容溢出
+  overflow-x: auto;
+  word-break: break-word;
+  overflow-wrap: break-word;
+
+  img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  // 段落和列表项防溢出
+  p, li, td, th, pre, code, div, span {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  // 确保长段落正确换行
+  p {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  // 行内样式也应用换行
+  [style*="text-align"] {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  // 代码块横向滚动
+  pre {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  // 表格响应式
+  table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+}
