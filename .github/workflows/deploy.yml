@@ -32,9 +32,11 @@ jobs:
         env:
           NODE_OPTIONS: "--max-old-space-size=6144"
 
-      - name: Deploy to Pages
+      - name: Deploy to Pages repo
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.PAGES_TOKEN }}
+          external_repository: hh127/Lin-s-wiki
           publish_dir: src/.vuepress/dist
           publish_branch: gh-pages
+          force_orphan: true
