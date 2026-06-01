@@ -386,34 +386,21 @@ export default hopeTheme({
   // 复制代码按钮
   copyCode: true,
   
-  // 版权保护
-  copyright: true,
+  // Markdown 配置
+  markdown: {
+    // 代码组
+    codeTabs: true,
+    // 选项卡
+    tabs: true,
+    // 任务列表
+    tasklist: true,
+  },
   
   // ========== 插件配置 ==========
   plugins: {
     // 组件插件
     components: {
       components: ["Badge", "VPCard"],
-    },
-    
-    // Markdown 增强（简化配置）
-    mdEnhance: {
-      // 代码组
-      codetabs: true,
-      // 选项卡
-      tabs: true,
-      // 任务列表
-      tasklist: true,
-      // 数学公式
-      math: true,
-      // 图表
-      chart: true,
-      // 流程图
-      flowchart: true,
-      // Mermaid 图表
-      mermaid: true,
-      // 演示文稿
-      presentation: true,
     },
   },
 });
