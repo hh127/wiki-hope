@@ -30,7 +30,7 @@ jobs:
       - name: Build
         run: pnpm run docs:build
         env:
-          NODE_OPTIONS: "--max-old-space-size=6144"
+          NODE_OPTIONS: "--max-old-space-size=7168"
 
       - name: Deploy to Pages repo
         uses: peaceiris/actions-gh-pages@v4
