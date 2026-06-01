@@ -27,7 +27,7 @@ export default defineUserConfig({
     ["meta", { name: "theme-color", content: "#11a8cd" }],
     ["meta", { name: "baidu-site-verification", content: "7F55weZDDc" }],
     // 霞鹜文楷字体
-    ["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" }],
+    ["link", { rel: "stylesheet", href: "https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.min.css" }],
   ],
 
   // 构建配置

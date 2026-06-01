@@ -200,13 +200,6 @@ export default hopeTheme({
                 collapsible: true,
                 children: "structure",
               },
-              {
-                text: "刑事审判参考",
-                icon: "gavel",
-                prefix: "80.刑事审判参考/",
-                collapsible: true,
-                children: "structure",
-              },
             ],
           },
         ],
