@@ -224,6 +224,103 @@ export default hopeTheme({
             collapsible: true,
             children: "structure",
           },
+          {
+            text: "造价计价规范",
+            icon: "calculator",
+            prefix: "03.造价计价规范/",
+            collapsible: true,
+            children: [
+              {
+                text: "国家计价规范",
+                icon: "book",
+                prefix: "01.国家计价规范/",
+                collapsible: true,
+                children: "structure",
+              },
+              {
+                text: "消耗量定额",
+                icon: "database",
+                prefix: "02.消耗量定额/",
+                collapsible: true,
+                children: [
+                  {
+                    text: "新疆",
+                    icon: "map",
+                    prefix: "新疆/",
+                    collapsible: true,
+                    children: "structure",
+                  },
+                  {
+                    text: "陕西",
+                    icon: "map",
+                    prefix: "陕西/",
+                    collapsible: true,
+                    children: "structure",
+                  },
+                ],
+              },
+              {
+                text: "费用定额",
+                icon: "money-bill",
+                prefix: "03.费用定额/",
+                collapsible: true,
+                children: [
+                  {
+                    text: "新疆",
+                    icon: "map",
+                    prefix: "新疆/",
+                    collapsible: true,
+                    children: "structure",
+                  },
+                  {
+                    text: "陕西",
+                    icon: "map",
+                    prefix: "陕西/",
+                    collapsible: true,
+                    children: "structure",
+                  },
+                ],
+              },
+              {
+                text: "地区估价表",
+                icon: "map-marker-alt",
+                prefix: "04.地区估价表/",
+                collapsible: true,
+                children: [
+                  {
+                    text: "新疆",
+                    icon: "map",
+                    prefix: "新疆/",
+                    collapsible: true,
+                    children: [
+                      {
+                        text: "阿克苏",
+                        icon: "city",
+                        prefix: "阿克苏/",
+                        collapsible: true,
+                        children: "structure",
+                      },
+                    ],
+                  },
+                  {
+                    text: "陕西",
+                    icon: "map",
+                    prefix: "陕西/",
+                    collapsible: true,
+                    children: [
+                      {
+                        text: "西安",
+                        icon: "city",
+                        prefix: "西安/",
+                        collapsible: true,
+                        children: "structure",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
         ],
       },
       {

@@ -14,58 +14,225 @@
 
 // 字体设置
 :root {
-  --font-family: "LXGW WenKai", "KaiTi", "STKaiti", "楷体", serif;
+  --font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", "苹方", sans-serif;
+  --content-font-size: 18px;
 }
 
-body,
-.vp-page-content,
-.theme-hope-content,
-.vp-navbar,
-.vp-sidebar {
+body {
   font-family: var(--font-family);
 }
 
-// 文章内容样式
-.vp-page-content,
-.theme-hope-content {
-  // 防止内容溢出
-  overflow-x: auto;
-  word-break: break-word;
-  overflow-wrap: break-word;
+// 导航栏、侧边栏和右侧目录使用系统默认字体
+.vp-navbar,
+.vp-sidebar,
+.vp-toc {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
 
-  img {
-    max-width: 100%;
-    border-radius: 8px;
+// 侧边栏各级标题字体大小
+.vp-sidebar {
+  // 一级标题（如：法规、工程建筑规范）
+  .vp-sidebar-item > .vp-sidebar-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-left: 3px solid var(--theme-color);
+    padding-left: 10px;
+    margin: 6px 0 4px 0;
+    color: var(--text-color);
   }
 
-  // 段落和列表项防溢出
-  p, li, td, th, pre, code, div, span {
-    word-break: break-word;
-    overflow-wrap: break-word;
+  // 二级标题（如：造价计价规范、国家计价规范）
+  .vp-sidebar-item .vp-sidebar-item > .vp-sidebar-title {
+    font-size: 0.82rem;
+    font-weight: 500;
+    border-left: 2px solid var(--theme-color-light);
+    padding-left: 8px;
+    margin: 4px 0 3px 0;
   }
 
-  // 确保长段落正确换行
+  // 三级标题（如：新疆、陕西）
+  .vp-sidebar-item .vp-sidebar-item .vp-sidebar-item > .vp-sidebar-title {
+    font-size: 0.78rem;
+    font-weight: 400;
+    padding-left: 6px;
+    margin: 3px 0 2px 0;
+    color: var(--text-color);
+  }
+
+  // 四级标题（如：阿克苏、西安）
+  .vp-sidebar-item .vp-sidebar-item .vp-sidebar-item .vp-sidebar-item > .vp-sidebar-title {
+    font-size: 0.74rem;
+    font-weight: 400;
+    padding-left: 4px;
+    margin: 2px 0;
+    color: var(--text-color-light);
+  }
+
+  // 最后一级（叶子节点/文件）- 通用处理
+  .vp-sidebar-item:not(:has(.vp-sidebar-item)) > .vp-sidebar-title {
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin: 1px 0;
+    color: var(--text-color-lighter);
+  }
+
+  // hover 效果
+  .vp-sidebar-title:hover {
+    color: var(--theme-color) !important;
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+  }
+}
+
+// 正文内容样式 - 只应用到文章内容，不影响首页和TOC
+// 使用 vp-content 属性选择器，排除首页（vp-project-home、vp-blog-home、vp-portfolio-home）
+.vp-page:not(.vp-project-home):not(.vp-blog-home):not(.vp-portfolio-home) [vp-content] {
+  font-family: var(--font-family);
+  font-size: var(--content-font-size);
+  line-height: 3.78;
+
+  // 段落样式
   p {
     max-width: 100%;
     white-space: normal;
+    text-indent: 2em;
+    margin-bottom: 1.2em;
+    text-align: justify;
   }
 
-  // 行内样式也应用换行
-  [style*="text-align"] {
-    word-break: break-word;
-    overflow-wrap: break-word;
+  // 标题样式 - 不同层级不同颜色 + 下划线
+  h1 {
+    font-size: 1.8em;
+    color: #1a5276;
+    border-bottom: 2px solid #1a5276;
+    padding-bottom: 8px;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
   }
 
-  // 代码块横向滚动
+  h2 {
+    font-size: 1.5em;
+    color: #2e86c1;
+    border-bottom: 2px solid #2e86c1;
+    padding-bottom: 6px;
+    margin-top: 1.3em;
+    margin-bottom: 0.6em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+    color: #5dade2;
+    border-bottom: 1px solid #5dade2;
+    padding-bottom: 4px;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+  }
+
+  h4 {
+    font-size: 1.2em;
+    color: #5499c7;
+    border-bottom: 1px dashed #5499c7;
+    padding-bottom: 4px;
+    margin-top: 1em;
+    margin-bottom: 0.4em;
+  }
+
+  h5 {
+    font-size: 1.1em;
+    color: #7fb3d8;
+    border-bottom: 1px dashed #7fb3d8;
+    padding-bottom: 3px;
+    margin-top: 0.8em;
+    margin-bottom: 0.3em;
+  }
+
+  h6 {
+    font-size: 1em;
+    color: #a9cce3;
+    font-weight: 500;
+    border-bottom: 1px dotted #a9cce3;
+    padding-bottom: 2px;
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  // 引用块样式
+  blockquote {
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 4px 4px 0;
+    color: #555;
+  }
+
+  // 链接样式
+  a {
+    color: #3498db;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #2980b9;
+      border-bottom: 1px solid #2980b9;
+    }
+  }
+
+  // 列表样式
+  ul, ol {
+    padding-left: 2em;
+    margin: 12px 0;
+  }
+
+  li {
+    margin: 6px 0;
+    line-height: 1.6;
+  }
+
+  // 代码块样式
   pre {
+    background-color: #f6f8fa;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 16px 0;
     overflow-x: auto;
-    max-width: 100%;
+    border: 1px solid #e1e4e8;
   }
 
-  // 表格响应式
+  code {
+    background-color: rgba(175, 184, 193, 0.2);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+  // 表格样式
   table {
-    display: block;
-    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 16px 0;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #dfe2e5;
+    padding: 8px 12px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: #fafbfc;
+  }
+
+  // 图片样式
+  img {
     max-width: 100%;
+    border-radius: 4px;
+    margin: 16px 0;
   }
 }
